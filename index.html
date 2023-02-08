@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container {
+        display: grid;
+        /*grid-template-columns: auto auto auto auto;*/
+        grid-template-columns: repeat(auto-fill, 200px);
+      }
+      label {
+        font-weight: bold;
+        margin-left:10px;
+      }
+    </style>
+  </head>
+  <body onload="loadPage()">
+
+    <h1><center>What is your VARIETY gamer score?</center></h1>
+    <h2><center>Which of these Video Game series did you play (at least 1 game of)? 1 point per box checked!</center></h2>
+    <h3><center><div id="score"></div></center></h2>
+    <div id="list" class="container" ></div>
+
+  <script>
+    var gCheckedCounter = 0;
+    var totalCounter = 0;
+    function loadPage() {
+      addCheckbox("Mario Bros.");
+      addCheckbox("Final Fantasy");
+      addCheckbox("Dragon Quest");
+      addCheckbox("Mortal Kombat");
+      addCheckbox("Legend of Zelda");
+      addCheckbox("Pikmin");
+      addCheckbox("Halo");
+      addCheckbox("Megaman");
+      addCheckbox("Pokemon");
+      addCheckbox("Tales of.");
+      addCheckbox("GTA");
+      addCheckbox("Uncharted");
+      addCheckbox("Warcraft");
+      addCheckbox("Of Mana");
+      addCheckbox("Diablo");
+      addCheckbox("Tomb Raider");
+      addCheckbox("The Elder Scrolls");
+      addCheckbox("Metal Gear");
+      addCheckbox("Assassin's Creed");
+      addCheckbox("Portal");
+      addCheckbox("Fallout");
+      addCheckbox("God Of War");
+      addCheckbox("Metroid");
+      addCheckbox("Sonic the Hedgehog");
+      addCheckbox("Doom");
+      addCheckbox("Tetris");
+      addCheckbox("Bioshock");
+      addCheckbox("The Witcher");
+      addCheckbox("Kingdom Hearts");
+      addCheckbox("Red Dead Redemp.");
+      addCheckbox("Mass Effect");
+      addCheckbox("Half-Life");
+      addCheckbox("Crash Bandicoot");
+      addCheckbox("Street Fighter");
+      addCheckbox("Star Fox");
+      addCheckbox("Spyro the Dragon");
+      addCheckbox("Donkey Kong");
+      addCheckbox("Chrono Series");
+      addCheckbox("Last of Us");
+      addCheckbox("Dark Souls");
+      addCheckbox("Tekken");
+      addCheckbox("Rachet and Clank");
+      addCheckbox("Fire Emblem");
+      addCheckbox("Devil May Cry");
+      addCheckbox("Borderlands");
+      addCheckbox("Call of Duty");
+      addCheckbox("Far Cry");
+      addCheckbox("Silent Hill");
+      addCheckbox("The Sims");
+      addCheckbox("Age of Empires");
+      addCheckbox("Resident Evil");
+      addCheckbox("Hitman");
+      addCheckbox("Dead Space");
+      addCheckbox("Need for Speed");
+      addCheckbox("Tony Hawk Pro.");
+      addCheckbox("Dragon Age");
+      addCheckbox("Animal Crossing");
+      addCheckbox("Harvest Moon");
+      addCheckbox("Gran Turismo");
+      addCheckbox("Gears of War");
+      addCheckbox("Fable");
+      addCheckbox("Prince of Persia");
+      addCheckbox("Rayman");
+      addCheckbox("Banjo-Kazooie");
+      addCheckbox("Contra");
+      addCheckbox("Max Payne");
+      addCheckbox("Castlevania");
+      addCheckbox("Counter-Strike");
+      addCheckbox("Team Fortress");
+      addCheckbox("Ninja Gaiden");
+      addCheckbox("Soul Calibur");
+      addCheckbox("Worms");
+      addCheckbox("Punch-Out");
+      addCheckbox("Persona");
+      addCheckbox("SMT");
+      addCheckbox("Shadow Hearts");
+      addCheckbox("Saints Row");
+      addCheckbox("Bayonetta");
+      addCheckbox("Yakuza");
+      addCheckbox("Bomberman");
+      addCheckbox("Jak and Daxter");
+      addCheckbox("Medal of Honor");
+      addCheckbox("Com. and Conq.");
+      addCheckbox("Monster Hunter");
+      addCheckbox("Guilty Gear");
+      addCheckbox("Dead or Alive");
+      addCheckbox("SaGa");
+      addCheckbox("Shenmue");
+      addCheckbox("Starcraft");
+      addCheckbox("Deus Ex");
+      addCheckbox("Total War");
+      addCheckbox("Watch Dogs");
+      addCheckbox("Nier");
+      addCheckbox("Drakengard");
+      addCheckbox("Phantasy Star");
+      addCheckbox("Dishonored");
+      addCheckbox("Warhammer");
+      addCheckbox("Breath of Fire");
+      addCheckbox("Parasite Eve");
+      addCheckbox("Wild Arms");
+      updateScore();
+    }
+    function addCheckbox(title) {
+      const list = document.querySelector("#list");
+      const item = document.createElement("div");
+      const checkbox = document.createElement("input");
+      checkbox.setAttribute("type", "checkbox");
+      checkbox.setAttribute("name", "checkbox1");
+      checkbox.setAttribute("onchange", "changeEvent(this)");
+      const label = document.createElement("label");
+      label.setAttribute("for", "checkbox1");
+      label.innerHTML = title;
+      item.appendChild(checkbox);
+      item.appendChild(label);
+      list.appendChild(item);
+      totalCounter++;
+    }
+    function changeEvent(checkbox){
+      if (checkbox.checked) {
+        gCheckedCounter++;
+      } else {
+        gCheckedCounter--;
+      }
+      updateScore();
+    }
+    function updateScore(checkbox){
+      const scoreElm = document.querySelector("#score");
+      scoreElm.innerHTML = gCheckedCounter+"/"+totalCounter;
+    }
+  </script>
+
+  </body>
+</html>
